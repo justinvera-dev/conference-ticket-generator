@@ -116,7 +116,7 @@ const generateTicket = () => {
     ticketAvatar.src = uploadedImageSrc;
     
     fullNameText.textContent = `${fullNameValue}`;
-    githubUsernameText.textContent = `${githubUsernameValue}`;
+    githubUsernameText.innerHTML = `<img src="/assets/images/icon-github.svg" alt="">${githubUsernameValue}`;
     
 }
 
