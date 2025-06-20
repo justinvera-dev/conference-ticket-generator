@@ -1,569 +1,574 @@
-    /* ! Global Styles */
-    @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
-    :root {
-        /* Neutral Colors */
-        --neutral-0: hsl(0, 0%, 100%);
-        --neutral-300: hsl(252, 6%, 83%);
-        --neutral-500: hsl(245, 15%, 58%);
-        --neutral-700: hsl(245, 19%, 35%);
-        --neutral-900: hsl(248, 70%, 10%);
+/* ! Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+:root {
+    /* Neutral Colors */
+    --neutral-0: hsl(0, 0%, 100%);
+    --neutral-300: hsl(252, 6%, 83%);
+    --neutral-500: hsl(245, 15%, 58%);
+    --neutral-700: hsl(245, 19%, 35%);
+    --neutral-900: hsl(248, 70%, 10%);
 
-        /* Orange Colors */
-        --orange-500: hsl(7, 88%, 67%);
-        --orange-700: hsl(7, 71%, 60%);
+    /* Orange Colors */
+    --orange-500: hsl(7, 88%, 67%);
+    --orange-700: hsl(7, 71%, 60%);
 
-        /* Gradient (text) */
-        --gradient-text-start: hsl(7, 86%, 67%);
-        --gradient-text-end: hsl(0, 0%, 100%);
-    }
-    * {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        box-sizing: border-box;
-    }
-    body {
-        background-image: url("/assets/images/pattern-lines.svg"), url("/assets/images/background-desktop.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        background-size: cover;
-        width: 100%;
-        min-height: 100vh;
-        position: relative;
-        font-family: "Inconsolata", sans-serif;
-        /* - Weights: 400, 500, 700, 800 */
-        color: var(--neutral-0);
-    }
-    /* ? Background images */
-    .background-images {
-        background-repeat: no-repeat;
-        pointer-events: none;
-        user-select: none;  
-        z-index: 0;
-    }
-    #pattern-circle {
-        position: absolute;
-        left: 2rem;
-        top: -5.5rem;
-    }
+    /* Gradient (text) */
+    --gradient-text-start: hsl(7, 86%, 67%);
+    --gradient-text-end: hsl(0, 0%, 100%);
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+body {
+    background-image: url("/assets/images/pattern-lines.svg"), url("/assets/images/background-desktop.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    font-family: "Inconsolata", sans-serif;
+    /* - Weights: 400, 500, 700, 800 */
+    color: var(--neutral-0);
+}
+/* ? Background images */
+.background-images {
+    background-repeat: no-repeat;
+    pointer-events: none;
+    user-select: none;  
+    z-index: 0;
+}
+#pattern-circle {
+    position: absolute;
+    left: 2rem;
+    top: -5.5rem;
+}
+#pattern-squiggly-line-bottom-desktop {
+    position: absolute;
+    bottom: 0;
+}
+#pattern-squiggly-line-bottom-mobile-tablet {
+    display:none;
+}
+#pattern-squiggly-line-top {
+    position: absolute;
+    top: 5.5rem;
+    right: 0;
+}
+.gradient {
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--gradient-text-start), var(--gradient-text-end));
+    -webkit-background-clip: text;        
+    -webkit-text-fill-color: transparent; 
+}
+/* ? Main */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/* ? Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 825px;
+}
+#logo-full {
+    margin-top: 3rem;
+}
+#title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 3rem;
+}
+#subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    text-align: center;
+    color: var(--neutral-300);
+    margin-top: 1.2rem;
+}
+/* ? Form */
+form {
+    width: 50%;
+    margin-top: 1rem;
+    z-index: 2;
+}
+/* Upload Area */
+#droparea {
+    width:100%;
+    height: 150px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(243, 46%, 17%, 0.5);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: dashed var(--neutral-500) 1px;
+    border-radius: 10px;
+    margin-top: 0.7rem;
+    position: relative;
+}
+#text-upload {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+#droparea #upload-image-input {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    margin-top:0;
+    opacity: 0;;
+}
+#droparea:hover {
+    background-color: hsla(245, 19%, 35%, 0.6);
+    cursor: pointer;
+}
+#droparea:hover #icon-upload {
+    border: 0.5px solid var(--neutral-500);
+    box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.1);
+}
+#upload-text {
+    color: var(--neutral-500);
+    font-size: 15px;
+}
+#info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: var(--neutral-500);
+    gap: 10px;
+    font-size: 12px;
+    margin-top: 0.8rem;
+}
+#uploaded-image-options {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.image-option {
+    padding: 8px;
+    background-color: hsla(245, 19%, 35%, 0.6);
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 1rem;
+}
+.image-option:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    background-color: #191636;
+}
+#change-image-input {
+    display: none;
+}
+/* Default style for upload icon */
+.icon-reset {
+    background-color: hsla(245, 19%, 35%, 0.6);
+    padding: 11.2px;
+    border-radius: 10px;
+    border: none;
+    width: 50.38px;
+    height: 50.38px;
+    object-fit: unset;
+}
+/* Style when image is uploaded */
+.icon-image {
+    padding: 0px;
+    width: 50.38px;
+    height: 50.38px;
+    object-fit: cover;
+    border: 0.5px solid hsl(252, 6%, 83%);
+    border-radius: 10px;
+}
+/* Form Inputs */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 20px;
+    margin-top: 1rem;
+}
+.input-container input {
+    border-radius: 10px;
+    width: 100%;
+    height: 45px;
+    background-color: hsla(243, 46%, 17%, 0.5);
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    border: 1px solid var(--neutral-500);
+    color: var(--neutral-0);
+    font-family: "Inconsolata", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 0.7rem;
+    text-indent:  1rem;
+    
+}
+.input-container input:hover {
+    background-color: hsla(245, 19%, 35%, 0.6);
+    cursor: pointer;
+}
+.input-container input::placeholder {
+    color: var(--neutral-500);
+}
+#full-name-container {
+    margin-top: 1.5rem;
+}
+/* Button */
+#generate-my-ticket {
+    background-color: var(--orange-500);
+    width: 100%;
+    height: 50px;
+    color: var(--neutral-900);
+    font-family: "Inconsolata", sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+}
+#generate-my-ticket:hover {
+    cursor: pointer;
+    background-color: rgba(247, 127, 111, 1)
+}
+/* ? Ticket */
+.ticket-container {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 4rem;
+    height: 280px;
+    width: 600px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 1.7rem;
+}
+#ticket {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.ticket-header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: fit-content;
+    height: 65px;
+    gap: 1rem;
+}
+.ticket-header div {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+#ticket-title {
+    font-size: 2.1rem;
+}
+#ticket-subtitle {
+    color: var(--neutral-500);
+    font-weight: 400;
+}
+.ticket-footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: fit-content;
+    height: 80px;
+    gap: 1rem;
+}
+#ticket-avatar {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.ticket-footer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+#ticket-full-name {
+    font-size: 1.7rem;
+    font-weight: 400;
+}
+#ticket-github-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 400;
+    color: var(--neutral-400);
+}
+#ticket-number {
+    position: absolute;
+    top: 85px;
+    right: 35px;
+    width: fit-content;
+    height: fit-content;
+    writing-mode: vertical-lr;
+    font-size: 2rem;
+    color:var(--neutral-500);
+    font-weight: 400;
+}
+/* ! Media Sizes */
+@media (max-width: 825px) {
     #pattern-squiggly-line-bottom-desktop {
+        display: none;
         position: absolute;
         bottom: 0;
     }
     #pattern-squiggly-line-bottom-mobile-tablet {
-        display:none;
-    }
-    #pattern-squiggly-line-top {
+        display: block;
         position: absolute;
-        top: 5.5rem;
-        right: 0;
+        bottom: 0px;
+        max-width: 100%;
     }
-    .gradient {
-        color: transparent;
-        background-clip: text;
-        background-image: linear-gradient(to right, var(--gradient-text-start), var(--gradient-text-end));
-    }
-    /* ? Main */
     .main {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
+        padding: 2rem;
     }
-    /* ? Container */
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        max-width: 825px;
-    }
-    #logo-full {
-        margin-top: 3rem;
-    }
+}
+@media (max-width: 768px) {
     #title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        text-align: center;
-        margin-top: 3rem;
+        font-size: 2.5rem;
     }
-    #subtitle {
-        font-size: 20px;
-        font-weight: 400;
-        text-align: center;
-        color: var(--neutral-300);
-        margin-top: 1.2rem;
+    form {
+        width: 60%;
+    }
+}
+@media (max-width: 660px) {
+    /* ? Form */
+    form {
+        width: 70%;
+    }   
+}
+@media (max-width: 590px) {
+    /* ? Form */
+    form {
+        width: 80%;
+    }
+}
+@media (max-width: 505px) {
+    /* ? Form */
+    form {
+        width: 90%;
+    }
+}
+@media (max-width: 480px) {
+    #title {
+        font-size: 2rem;
     }
     /* ? Form */
     form {
-        width: 50%;
-        margin-top: 1rem;
-        z-index: 2;
+        width: 90%;
     }
-    /* Upload Area */
-    #droparea {
-        width:100%;
-        height: 150px;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: hsla(243, 46%, 17%, 0.5);
-        backdrop-filter: blur(1px);
-        border: dashed var(--neutral-500) 1px;
-        border-radius: 10px;
-        margin-top: 0.7rem;
-        position: relative;
-    }
-    #text-upload {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-    #droparea #upload-image-input {
-        position: absolute;
-        top:0;
-        left:0;
-        width:100%;
-        height: 100%;
-        cursor: pointer;
-        margin-top:0;
-        opacity: 0;;
-    }
-    #droparea:hover {
-        background-color: hsla(245, 19%, 35%, 0.6);
-        cursor: pointer;
-    }
-    #droparea:hover #icon-upload {
-        border: 0.5px solid var(--neutral-500);
-        box-shadow: 0px 8px 18px 0px rgba(0, 0, 0, 0.1);
-    }
-    #upload-text {
-        color: var(--neutral-500);
-        font-size: 15px;
-    }
-    #info {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        color: var(--neutral-500);
-        gap: 10px;
-        font-size: 12px;
-        margin-top: 0.8rem;
-    }
-    #uploaded-image-options {
-        display: none;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-    }
-    .image-option {
-        padding: 8px;
-        background-color: hsla(245, 19%, 35%, 0.6);
-        border-radius: 5px;
-        font-weight: 400;
-        font-size: 15px;
-        margin-bottom: 1rem;
-    }
-    .image-option:hover {
-        text-decoration: underline;
-        cursor: pointer;
-        background-color: #191636;
-    }
-    #change-image-input {
-        display: none;
-    }
-    /* Default style for upload icon */
-    .icon-reset {
-        background-color: hsla(245, 19%, 35%, 0.6);
-        padding: 11.2px;
-        border-radius: 10px;
-        border: none;
-        width: 50.38px;
-        height: 50.38px;
-        object-fit: unset;
-    }
-    /* Style when image is uploaded */
-    .icon-image {
-        padding: 0px;
-        width: 50.38px;
-        height: 50.38px;
-        object-fit: cover;
-        border: 0.5px solid hsl(252, 6%, 83%);
-        border-radius: 10px;
-    }
-    /* Form Inputs */
-    .input-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        font-size: 20px;
-        margin-top: 1rem;
-    }
-    .input-container input {
-        border-radius: 10px;
-        width: 100%;
-        height: 45px;
-        background-color: hsla(243, 46%, 17%, 0.5);
-        backdrop-filter: blur(1px);
-        border: 1px solid var(--neutral-500);
-        color: var(--neutral-0);
-        font-family: "Inconsolata", sans-serif;
-        font-weight: 500;
+    #droparea-label {
         font-size: 1rem;
-        margin-top: 0.7rem;
-        text-indent:  1rem;
-        
     }
-    .input-container input:hover {
-        background-color: hsla(245, 19%, 35%, 0.6);
-        cursor: pointer;
+}
+@media (max-width: 390px) {
+    /* ? Form */
+    form {
+        width: 90%;
     }
-    .input-container input::placeholder {
-        color: var(--neutral-500);
+    #droparea-label {
+        font-size: 1rem;
     }
-    #full-name-container {
-        margin-top: 1.5rem;
+    .main {
+        padding: 1rem;
     }
-    /* Button */
-    #generate-my-ticket {
-        background-color: var(--orange-500);
-        width: 100%;
-        height: 50px;
-        color: var(--neutral-900);
-        font-family: "Inconsolata", sans-serif;
-        font-weight: 800;
-        font-size: 20px;
-        border-radius: 10px;
-        margin-top: 1.5rem;
+}
+@media (max-width: 375px) {
+    #title {
+        font-size: 1.5rem;
     }
-    #generate-my-ticket:hover {
-        cursor: pointer;
-        background-color: rgba(247, 127, 111, 1)
+    #subtitle {
+        font-size: 1rem;
     }
-    /* ? Ticket */
+    /* ? Form */
+    form {
+        width: 90%;
+    }
+    form label, #upload-avatar-label, #droparea-label, .input-container input {
+        font-size: 1rem;
+    }
+    
+    .main {
+        padding: 1rem;
+    }
+}
+@media (max-width: 340px) {
+    #title {
+        font-size: 1.5rem;
+    }
+    #subtitle {
+        font-size: 1rem;
+    }
+    /* ? Form */
+    form {
+        width: 90%;
+    }
+    form label, #upload-avatar-label, #droparea-label, .input-container input {
+        font-size: 0.9rem;
+    }
+    .main {
+        padding: 0.5rem;
+    }
+}
+
+/* Ticket media size */
+@media (max-width: 645px) {
     .ticket-container {
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        position: relative;
-        margin-top: 4rem;
-        height: 280px;
-        width: 600px;
-        backdrop-filter: blur(20px);
-        padding: 1.7rem;
+        width: 500px;
+        height: 240px;
     }
     #ticket {
-        position: absolute;
-        top: 0;
-        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    #ticket-number {
+        top: 68px;
+        right: 30px;
+    }
+}
+@media (max-width: 545px) {
+    .ticket-container {
+        width: 400px;
+        height: 200px;
+        margin-top: 2rem;
+    }
+    #ticket {
+        width: 100%;
+        height: 100%;
     }
     .ticket-header {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: fit-content;
-        height: 65px;
-        gap: 1rem;
+        height: 50px;
     }
-    .ticket-header div {
-        display:flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        width: 100%;
+    .ticket-footer {
+        height: 60px;
+    }
+    #ticket-avatar {
+        width: 60px;
         height: 100%;
     }
     #ticket-title {
-        font-size: 2.1rem;
+        font-size: 1.5rem;
     }
     #ticket-subtitle {
-        color: var(--neutral-500);
-        font-weight: 400;
-    }
-    .ticket-footer {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        width: fit-content;
-        height: 80px;
-        gap: 1rem;
-    }
-    #ticket-avatar {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    .ticket-footer div {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 0.4rem;
-    }
-    #ticket-full-name {
-        font-size: 1.7rem;
-        font-weight: 400;
-    }
-    #ticket-github-username {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 0.4rem;
-        font-weight: 400;
-        color: var(--neutral-400);
+        font-size: 0.8rem;
     }
     #ticket-number {
-        position: absolute;
-        top: 85px;
-        right: 35px;
-        width: fit-content;
-        height: fit-content;
-        writing-mode: vertical-lr;
-        font-size: 2rem;
-        color:var(--neutral-500);
-        font-weight: 400;
+        top: 55px;
+        right: 20px;
+        font-size: 1.8rem;
     }
-    /* ! Media Sizes */
-    @media (max-width: 825px) {
-        #pattern-squiggly-line-bottom-desktop {
-            display: none;
-            position: absolute;
-            bottom: 0;
-        }
-        #pattern-squiggly-line-bottom-mobile-tablet {
-            display: block;
-            position: absolute;
-            bottom: 0px;
-            max-width: 100%;
-        }
-        .main {
-            padding: 2rem;
-        }
+}
+@media (max-width: 425px) {
+    .ticket-container {
+        width: 370px;
+        height: 200px;
     }
-    @media (max-width: 768px) {
-        #title {
-            font-size: 2.5rem;
-        }
-        form {
-            width: 60%;
-        }
+    #ticket {
+        width: 100%;
+        height: 100%;
     }
-    @media (max-width: 660px) {
-        /* ? Form */
-        form {
-            width: 70%;
-        }   
+    .ticket-header {
+        height: 50px;
     }
-    @media (max-width: 590px) {
-        /* ? Form */
-        form {
-            width: 80%;
-        }
+    .ticket-footer {
+        height: 50px;
     }
-    @media (max-width: 505px) {
-        /* ? Form */
-        form {
-            width: 90%;
-        }
+    #ticket-avatar {
+        width: 50px;
+        height: 100%;
     }
-    @media (max-width: 480px) {
-        #title {
-            font-size: 2rem;
-        }
-        /* ? Form */
-        form {
-            width: 90%;
-        }
-        #droparea-label {
-            font-size: 1rem;
-        }
+    #ticket-full-name {
+        font-size: 1.3rem;
     }
-    @media (max-width: 390px) {
-        /* ? Form */
-        form {
-            width: 90%;
-        }
-        #droparea-label {
-            font-size: 1rem;
-        }
-        .main {
-            padding: 1rem;
-        }
+    #ticket-github-username {
+        font-size: 0.8rem;
     }
-    @media (max-width: 375px) {
-        #title {
-            font-size: 1.5rem;
-        }
-        #subtitle {
-            font-size: 1rem;
-        }
-        /* ? Form */
-        form {
-            width: 90%;
-        }
-        form label, #upload-avatar-label, #droparea-label, .input-container input {
-            font-size: 1rem;
-        }
-        
-        .main {
-            padding: 1rem;
-        }
+    #ticket-title {
+        font-size: 1.5rem;
     }
-    @media (max-width: 340px) {
-        #title {
-            font-size: 1.5rem;
-        }
-        #subtitle {
-            font-size: 1rem;
-        }
-        /* ? Form */
-        form {
-            width: 90%;
-        }
-        form label, #upload-avatar-label, #droparea-label, .input-container input {
-            font-size: 0.9rem;
-        }
-        .main {
-            padding: 0.5rem;
-        }
+    #ticket-subtitle {
+        font-size: 0.8rem;
     }
-
-    /* Ticket media size */
-    @media (max-width: 645px) {
-        .ticket-container {
-            width: 500px;
-            height: 240px;
-        }
-        #ticket {
-            width: 100%;
-            height: 100%;
-        }
-        #ticket-number {
-            top: 68px;
-            right: 30px;
-        }
+    #ticket-number {
+        top: 55px;
+        right: 17px;
+        font-size: 1.7rem;
     }
-    @media (max-width: 545px) {
-        .ticket-container {
-            width: 400px;
-            height: 200px;
-            margin-top: 2rem;
-        }
-        #ticket {
-            width: 100%;
-            height: 100%;
-        }
-        .ticket-header {
-            height: 50px;
-        }
-        .ticket-footer {
-            height: 60px;
-        }
-        #ticket-avatar {
-            width: 60px;
-            height: 100%;
-        }
-        #ticket-title {
-            font-size: 1.5rem;
-        }
-        #ticket-subtitle {
-            font-size: 0.8rem;
-        }
-        #ticket-number {
-            top: 55px;
-            right: 20px;
-            font-size: 1.8rem;
-        }
+}
+@media (max-width: 390px) {
+    .ticket-container {
+        width: 320px;
+        height: 180px;
+        padding: 2rem 1rem;
     }
-    @media (max-width: 425px) {
-        .ticket-container {
-            width: 370px;
-            height: 200px;
-        }
-        #ticket {
-            width: 100%;
-            height: 100%;
-        }
-        .ticket-header {
-            height: 50px;
-        }
-        .ticket-footer {
-            height: 50px;
-        }
-        #ticket-avatar {
-            width: 50px;
-            height: 100%;
-        }
-        #ticket-full-name {
-            font-size: 1.3rem;
-        }
-        #ticket-github-username {
-            font-size: 0.8rem;
-        }
-        #ticket-title {
-            font-size: 1.5rem;
-        }
-        #ticket-subtitle {
-            font-size: 0.8rem;
-        }
-        #ticket-number {
-            top: 55px;
-            right: 17px;
-            font-size: 1.7rem;
-        }
+    #ticket {
+        width: 100%;
+        height: 100%;
     }
-    @media (max-width: 390px) {
-        .ticket-container {
-            width: 320px;
-            height: 180px;
-            padding: 2rem 1rem;
-        }
-        #ticket {
-            width: 100%;
-            height: 100%;
-        }
-        .ticket-header {
-            height: 40px;
-        }
-        #ticket-title {
-            font-size: 1rem;
-        }
-        #ticket-subtitle {
-            font-size: 0.8rem;
-        }
-        .ticket-footer {
-            height: 40px;
-        }
-        #ticket-avatar {
-            width: 40px;
-            height: 100%;
-        }
-        #ticket-full-name {
-            font-size: 1rem;
-        }
-        #ticket-github-username {
-            font-size: 0.6rem;
-        }
-        #ticket-number {
-            top: 55px;
-            right: 17px;
-            font-size: 1.7rem;
-        }
+    .ticket-header {
+        height: 40px;
     }
-    @media (max-width: 390px) {
-        .ticket-container {
-            width: 300px;
-            height: 180px;
-            padding: 2rem 1rem;
-        }
+    #ticket-title {
+        font-size: 1rem;
     }
+    #ticket-subtitle {
+        font-size: 0.8rem;
+    }
+    .ticket-footer {
+        height: 40px;
+    }
+    #ticket-avatar {
+        width: 40px;
+        height: 100%;
+    }
+    #ticket-full-name {
+        font-size: 1rem;
+    }
+    #ticket-github-username {
+        font-size: 0.6rem;
+    }
+    #ticket-number {
+        top: 55px;
+        right: 17px;
+        font-size: 1.7rem;
+    }
+}
+@media (max-width: 390px) {
+    .ticket-container {
+        width: 300px;
+        height: 180px;
+        padding: 2rem 1rem;
+    }
+}
