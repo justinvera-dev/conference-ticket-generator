@@ -2,56 +2,84 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="main.css">  
   <title>Frontend Mentor | Conference ticket generator</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
-
-  <!-- Form starts -->
-
-  Your Journey to Coding Conf 2025 Starts Here!
-
-  Secure your spot at next year's biggest coding conference.
-
-  Upload Avatar
-  Drag and drop or click to upload
-  Upload your photo (JPG or PNG, max size: 500KB).
-
-  Full Name
-
-  Email Address
-  example@email.com
-
-  GitHub Username
-  @yourusername
-
-  Generate My Ticket
-
-  <!-- Form ends -->
-
-  <!-- Generated tickets starts -->
-
-  Congrats, <!-- Full Name -->! Your ticket is ready.
-
-  We've emailed your ticket to <!-- Email Address --> and will send updates in the run up to the event.
-
-  Coding Conf
-  Jan 31, 2025 / Austin, TX
-
-  <!-- Generated tickets ends -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <img src="/assets/images/pattern-circle.svg" alt="" aria-hidden="true" id="pattern-circle" class="background-images">
+  <img src="/assets/images/pattern-squiggly-line-bottom-desktop.svg" alt="" aria-hidden="true" id="pattern-squiggly-line-bottom-desktop" class="background-images">
+  <img src="/assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg" alt="" aria-hidden="true" id="pattern-squiggly-line-bottom-mobile-tablet" class="background-images">
+  <img src="/assets/images/pattern-squiggly-line-top.svg" alt="" aria-hidden="true" id="pattern-squiggly-line-top" class="background-images">
+  <div class="main">
+    <div class="container">
+      <img id="logo-full" src="/assets/images/logo-full.svg" alt="Coding Conf">
+      <h1 id="title">Your Journey to Coding Conf 2025 Starts Here!</h1>
+      <p id="subtitle">Secure your spot at next year's biggest coding conference.</p>
+      <form id="ticket-form">
+        <div id="upload-avatar-container" class="input-container">
+          <p id="upload-avatar-label">Upload Avatar</p>
+          <section id="droparea" tabindex="0">
+            <input type="file" name="upload-image" id="upload-image-input" required>
+            <label id="text-upload" for="upload-image-input">
+              <img id="icon-upload" class="icon-reset" src="/assets/images/icon-upload.svg" alt="" aria-hidden="true">
+              <p id="droparea-label">Drag and drop or click to upload</p>
+            </label>
+            <div id="uploaded-image-options">
+              <div id="remove-image" class="image-option">Remove Image</div>
+              <input type="file" id="change-image-input">
+              <div id="change-image" class="image-option">Change Image</div>
+            </div>
+          </section>
+          <div id="info">
+            <img src="/assets/images/icon-info.svg" alt="" aria-hidden="true"> 
+            <p>Upload your photo (JPG or PNG, max size: 500KB).</p>
+          </div>
+        </div>
+        <div id="full-name-container" class="input-container">
+          <label for="full-name">Full Name</label>
+          <input type="text" name="full-name" id="full-name" placeholder="Juliana Maria Vera" required>
+        </div>
+        <div id="email-address-container" class="input-container">
+          <label for="email-address">Email Address</label>
+          <input type="email" name="email-address" id="email-address" placeholder="juliana@vera.com" required>
+        </div>
+        <div id="github-username-container" class="input-container">
+          <label for="github-username">GitHub Username</label>
+          <input type="text" name="github-username" id="github-username" placeholder="@julianavera" required>
+        </div>
+        <button id="generate-my-ticket" type="submit">Generate My Ticket</button>
+      </form>
+      <!-- ticket container -->
+      <div class="ticket-container">
+        <!-- ticket top left -->
+        <img src="/assets/images/pattern-ticket.svg" alt="" id="ticket">
+        <div class="ticket-header">
+          <img src="/assets/images/logo-mark.svg" alt="" ariahidden="true" id="logo-mark">
+          <div>
+            <h1 id="ticket-title">Coding Conf</h1>
+            <p id="ticket-subtitle">Jan 31, 2025 / Austin TX</p>
+          </div>
+        </div>
+        <!-- ticket bottom left -->
+        <div class="ticket-footer">
+          <img src="" alt="" aria-hidden="true" id="ticket-avatar">
+          <div>
+            <h1 id="ticket-full-name"></h1>
+            <p id="ticket-github-username"><img src="/assets/images/icon-github.svg" alt=""></p>
+          </div>
+        </div>
+        <!-- ticket number -->
+         <p id="ticket-number">
+          #01609
+         </p>
+      </div>      
+    </div>
   </div>
+  <!-- 
+  big help on the drag and drop funtionality.
+  https://www.youtube.com/watch?v=9Xh_ZpFkROI
+ -->
 </body>
+<script src="main.js"></script>
 </html>
